@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Songti SC", "STSong", "Noto Serif SC", "Songti TC", serif;
+
+  --color-bg: #121410;
+  --color-surface: #1c211c;
+  --color-surface-2: #262c26;
+  --color-ink: #f3ecdf;
+  --color-muted: #aeb8a8;
+  --color-line: #343b33;
+  --color-brass: #c6a15a;
+  --color-up: #3cba8b;
+  --color-down: #e15d4a;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(
+        900px 420px at 100% -10%,
+        color-mix(in srgb, var(--color-brass) 16%, transparent),
+        transparent 60%
+      ),
+      var(--color-bg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
